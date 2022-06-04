@@ -4,7 +4,7 @@
 # How to make your mod compatible
 ### Step 1: Create a folder named `CraftingRecipes` in the root directory of your mod.
 ![Guide1](https://github.com/QuestionableM/Modded-Craftbot-Recipes/blob/main/GuideImages/guide_image1.png)
-### Step 2: Create a file named `craftbot.json` in the `CraftingRecipes` directory.
+### Step 2: Create a file named `craftbot.json`, `hideout.json` or `workbench.json` in the `CraftingRecipes` directory.
 ![Guide2](https://github.com/QuestionableM/Modded-Craftbot-Recipes/blob/main/GuideImages/guide_image2.png)
 ### Step 3: Add your own crafting recipes into `craftbot.json` file.
 ![Guide3](https://github.com/QuestionableM/Modded-Craftbot-Recipes/blob/main/GuideImages/guide_image3.png)
