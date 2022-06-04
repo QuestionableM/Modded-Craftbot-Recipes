@@ -6,7 +6,7 @@
 ![Guide1](https://github.com/QuestionableM/Modded-Craftbot-Recipes/blob/main/GuideImages/guide_image1.png)
 ### Step 2: Create a file named `craftbot.json`, `hideout.json` or `workbench.json` in the `CraftingRecipes` directory.
 ![Guide2](https://github.com/QuestionableM/Modded-Craftbot-Recipes/blob/main/GuideImages/guide_image2.png)
-### Step 3: Add your own crafting recipes into `craftbot.json` file.
+### Step 3: Add your own crafting recipes into the created file(s).
 ![Guide3](https://github.com/QuestionableM/Modded-Craftbot-Recipes/blob/main/GuideImages/guide_image3.png)
 
 # Other Info
