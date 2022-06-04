@@ -8,7 +8,8 @@
          "name" : "ModDatabase"
       }
    ],
-   "description" : "This mod doesn't have a description",
+   "description" : "This mod adds an ability for mod makers to adds their own crafting recipes to survival game without making a custom game!",
+   "fileId" : 2816900681,
    "localId" : "838b62eb-ea80-42ce-948c-031c230a4b54",
    "name" : "Modded Craftbot Recipes",
    "type" : "Custom Game",
