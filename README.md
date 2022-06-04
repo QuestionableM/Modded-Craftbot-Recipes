@@ -1,5 +1,5 @@
 # Modded Craftbot Recipes
- This custom game allows mod makers to add crafting recipes to their mods without having to create a custom game! It will take care of loading all available crafting recipes from compatible mods into the craftbot!
+ This custom game allows you to play Survival mode with mods, while also being able to craft the modded parts in the craftbot! It will take care of loading all available crafting recipes from compatible mods into the craftbot!
 
 # How to make your mod compatible
 ### Step 1: Create a folder named `CraftingRecipes` in the root directory of your mod.
