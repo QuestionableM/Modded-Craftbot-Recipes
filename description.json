@@ -1,0 +1,16 @@
+{
+   "allow_add_mods" : true,
+   "custom_icons" : false,
+   "dependencies" : [
+      {
+         "fileId" : 2504530003,
+         "localId" : "40639a2c-bb9f-4d4f-b88c-41bfe264ffa8",
+         "name" : "ModDatabase"
+      }
+   ],
+   "description" : "This mod doesn't have a description",
+   "localId" : "838b62eb-ea80-42ce-948c-031c230a4b54",
+   "name" : "Modded Craftbot Recipes",
+   "type" : "Custom Game",
+   "version" : 0
+}
