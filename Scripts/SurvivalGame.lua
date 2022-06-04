@@ -267,10 +267,10 @@ function SurvivalGame.loadCraftingRecipes( self )
 	merge_custom_crafting_recipes()
 
 	LoadCraftingRecipes({
-		workbench = "$SURVIVAL_DATA/CraftingRecipes/workbench.json",
+		workbench = cmi_merged_recipes_paths.workbench,
 		dispenser = "$SURVIVAL_DATA/CraftingRecipes/dispenser.json",
 		cookbot = "$SURVIVAL_DATA/CraftingRecipes/cookbot.json",
-		craftbot = cmi_merged_recipes_file_path,
+		craftbot = cmi_merged_recipes_paths.craftbot,
 		dressbot = "$SURVIVAL_DATA/CraftingRecipes/dressbot.json"
 	})
 end
