@@ -1,8 +1,3 @@
 {
-   "kinematicSetList" : [
-      {
-         "categories" : [],
-         "name" : "$CONTENT_DATA/Kinematics/Database/KinematicSets/example.kinematicset"
-      }
-   ]
+	"kinematicSetList": []
 }

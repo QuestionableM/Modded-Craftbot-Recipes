@@ -8,7 +8,7 @@
          "name" : "ModDatabase"
       }
    ],
-   "description" : "This mod adds an ability for mod makers to adds their own crafting recipes to survival game without making a custom game!",
+   "description" : "This mod allows you to play Survival mode with mods, while also being able to craft the modded parts in the craftbot!\r\n\r\n[h1]How to make your mod compatible with this custom game[/h1]\r\n[h2]Step 1: Add a folder named \"CraftingRecipes\" into your root mod folder[/h2]\r\n[h2]Step 2: Add a file named \"craftbot.json\" into the \"CraftingRecipes\" folder[/h2]\r\n[h2]Step 3: Add your own crafting recipes into \"craftbot.json\" file[/h2]\r\n[h2]Step 4: Enjoy![/h2]\r\n\r\nYou can find a more detailed guide on the [url=https://github.com/QuestionableM/Modded-Craftbot-Recipes/blob/main/README.md]github[/url] page of this custom game.\r\n\r\n[h1]Other info[/h1]\r\nPreview was made by [url=https://steamcommunity.com/profiles/76561198318189561]Dart Frog[/url]",
    "fileId" : 2816900681,
    "localId" : "838b62eb-ea80-42ce-948c-031c230a4b54",
    "name" : "Modded Craftbot Recipes",

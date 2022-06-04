@@ -1,8 +1,3 @@
 {
-   "effectSetList" : [
-      {
-         "path" : "$CONTENT_DATA/Effects/Database/EffectSets/example.effectset",
-         "showInEditor" : true
-      }
-   ]
+	"effectSetList": []
 }

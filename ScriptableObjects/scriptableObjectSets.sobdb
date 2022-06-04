@@ -1,6 +1,3 @@
 {
-	"scriptableObjectSetList": [ 
-	{
-		"scriptableObjectSet": "$CONTENT_DATA/ScriptableObjects/ScriptableObjectSets/example.sobset"
-	}
-]}
+	"scriptableObjectSetList": []
+}
