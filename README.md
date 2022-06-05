@@ -6,6 +6,14 @@
 ![Guide1](https://github.com/QuestionableM/Modded-Craftbot-Recipes/blob/main/GuideImages/guide_image1.png)
 ### Step 2: Create a file named `craftbot.json`, `hideout.json` or `workbench.json` in the `CraftingRecipes` directory.
 ![Guide2](https://github.com/QuestionableM/Modded-Craftbot-Recipes/blob/main/GuideImages/guide_image2.png)
+
+## Here's what each file corresponds to:
+```
+craftbot.json  -> adds your crafting recipes to the craftbot
+hideout.json   -> adds your crafting recipes to the hideout trader
+workbench.json -> adds your crafting recipes to the craftbot in the crashed ship
+```
+
 ### Step 3: Add your own crafting recipes into the created file(s).
 ##### The following code block is an example of how your json file with crafting recipes should look like
 ```jsonc
