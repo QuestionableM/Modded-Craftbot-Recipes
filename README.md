@@ -7,7 +7,28 @@
 ### Step 2: Create a file named `craftbot.json`, `hideout.json` or `workbench.json` in the `CraftingRecipes` directory.
 ![Guide2](https://github.com/QuestionableM/Modded-Craftbot-Recipes/blob/main/GuideImages/guide_image2.png)
 ### Step 3: Add your own crafting recipes into the created file(s).
-![Guide3](https://github.com/QuestionableM/Modded-Craftbot-Recipes/blob/main/GuideImages/guide_image3.png)
+##### The following code block is an example of how your json file with crafting recipes should look like
+```jsonc
+[
+	{
+		//this is the uuid of your part
+		"itemId": "00000000-0000-0000-0000-000000000000",
+		"quantity": 1,
+		"craftTime": 32,
+		"ingredientList": [
+			//this is where you define ingredients for your crafting recipe
+			{
+				"quantity": 10,
+				"itemId": "00000000-0000-0000-0000-000000000000"
+			},
+			{
+				"quantity": 2,
+				"itemId": "00000000-0000-0000-0000-000000000000"
+			}
+		]
+	}
+]
+```
 
 # Other Info
 The mod preview image was made by [Dart Frog](https://steamcommunity.com/profiles/76561198318189561)
