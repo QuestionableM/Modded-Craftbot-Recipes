@@ -31,7 +31,7 @@
 ```
 
 # My crafting recipes are not showing up, what should i do?
-If you've just created a new mod, you should contact `TechnologicNick#4045` first before doing any testing, as the mod database used by the custom game updates once per 12 hours.
+If you've just created a new mod, you should contact `TechnologicNick#4045` first before doing any testing, as the mod database used by the custom game updates once per 12 hours and it might not contain the information about your mod.
 
 If you have any other questions, feel free to join our [Modding Server](https://discord.gg/SVEFyus)
 
