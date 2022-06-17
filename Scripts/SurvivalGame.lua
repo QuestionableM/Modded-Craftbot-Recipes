@@ -20,6 +20,7 @@ dofile( "$GAME_DATA/Scripts/game/managers/EventManager.lua" )
 
 dofile("RecipeLoader.lua")
 
+
 ---@class SurvivalGame : GameClass
 ---@field sv table
 ---@field cl table
@@ -35,8 +36,6 @@ local SyncInterval = 400 -- 400 ticks | 10 seconds
 local IntroFadeDuration = 1.1
 local IntroEndFadeDuration = 1.1
 local IntroFadeTimeout = 5.0
-
-
 
 function SurvivalGame.server_onCreate( self )
 	print( "SurvivalGame.server_onCreate" )
@@ -263,14 +262,15 @@ function SurvivalGame.client_onClientDataUpdate( self, clientData, channel )
 	end
 end
 
+
 function SurvivalGame.loadCraftingRecipes( self )
-	merge_custom_crafting_recipes()
+	initialize_crafting_recipes()
 
 	LoadCraftingRecipes({
-		workbench = cmi_merged_recipes_paths.workbench,
+		workbench = "$SURVIVAL_DATA/CraftingRecipes/workbench.json",
 		dispenser = "$SURVIVAL_DATA/CraftingRecipes/dispenser.json",
 		cookbot = "$SURVIVAL_DATA/CraftingRecipes/cookbot.json",
-		craftbot = cmi_merged_recipes_paths.craftbot,
+		craftbot = "$SURVIVAL_DATA/CraftingRecipes/craftbot.json",
 		dressbot = "$SURVIVAL_DATA/CraftingRecipes/dressbot.json"
 	})
 end
@@ -632,6 +632,7 @@ function SurvivalGame.cl_n_onJoined( self, params )
 end
 
 function SurvivalGame.client_onLoadingScreenLifted( self )
+	g_effectManager:cl_onLoadingScreenLifted()
 	self.network:sendToServer( "sv_n_loadingScreenLifted" )
 	if self.cl.playIntroCinematic then
 		local callbacks = {}
@@ -639,7 +640,7 @@ function SurvivalGame.client_onLoadingScreenLifted( self )
 		g_effectManager:cl_playNamedCinematic( "cinematic.survivalstart01", callbacks )
 	end
 end
-
+	
 function SurvivalGame.sv_n_loadingScreenLifted( self, _, player )
 	if not g_survivalDev then
 		QuestManager.Sv_TryActivateQuest( "quest_tutorial" )

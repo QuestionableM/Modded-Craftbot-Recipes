@@ -296,7 +296,10 @@ end
 
 function HideoutTrader.cl_updateTradeGrid( self )
 	self.cl.guiInterface:clearGrid( "TradeGrid" )
-	self.cl.guiInterface:addGridItemsFromFile( "TradeGrid", "$CONTENT_DATA/Scripts/HideoutMergedRecipes.json" )
+
+	for k, path in ipairs(cmi_valid_crafting_recipes.hideout) do
+		self.cl.guiInterface:addGridItemsFromFile("TradeGrid", path)
+	end
 end
 
 function HideoutTrader.cl_n_addVacuumItem( self, params )
