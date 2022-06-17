@@ -1,0 +1,38 @@
+{
+	"partList": [
+		{
+			"uuid": "2ff2b13f-5a50-443c-bbda-1f40f6aa917f",
+			"name": "obj_survivalobject_workbench",
+			"renderable": "$SURVIVAL_DATA/Character/Char_Workbench/char_workbench.rend",
+			"color": "4a4a4a",
+			"box": {
+				"x": 5,
+				"y": 11,
+				"z": 3
+			},
+			"scripted": {
+				"filename": "$CONTENT_DATA/Scripts/Interactables/Crafter.lua",
+				"classname": "Workbench"
+			},
+			"rotationSet": "PropY",
+			"physicsMaterial": "Metal",
+			"ratings": {
+				"density": 5,
+				"durability": 10,
+				"friction": 5,
+				"buoyancy": 5
+			},
+			"flammable": false,
+			"restrictions": {
+				"destructable": false,
+				"erasable": false,
+				"buildable": false,
+				"usable": true,
+				"connectable": false,
+				"liftable": false,
+				"convertibleToDynamic": false,
+				"paintable": false
+			}
+		}
+	]
+}
