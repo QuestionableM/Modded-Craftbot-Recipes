@@ -245,12 +245,12 @@ function SurvivalGame.bindChatCommands( self )
 		sm.game.bindChatCommand( "/reloadcell", {{ "int", "x", true }, { "int", "y", true }}, "cl_onChatCommand", "Reload cells at self or {x,y}" )
 		sm.game.bindChatCommand( "/tutorialstartkit", {}, "cl_onChatCommand", "Spawn a starter kit for building a scrap car" )
 
-
-
-
-
-
+		sm.game.bindChatCommand( "/reloadcraftingrecipes", {}, "cl_onReloadCraftingRecipes", "Reloads crafting recipes for the custom game (Can be useful for mod developers to make their mods compatible with this game mode)" )
 	end
+end
+
+function SurvivalGame.cl_onReloadCraftingRecipes(self)
+	self:loadCraftingRecipes(true)
 end
 
 function SurvivalGame.client_onClientDataUpdate( self, clientData, channel )
@@ -263,8 +263,10 @@ function SurvivalGame.client_onClientDataUpdate( self, clientData, channel )
 end
 
 
-function SurvivalGame.loadCraftingRecipes( self )
-	initialize_crafting_recipes()
+function SurvivalGame.loadCraftingRecipes( self, ignore_cache )
+	initialize_crafting_recipes(ignore_cache)
+
+	g_craftingRecipes = nil
 
 	LoadCraftingRecipes({
 		workbench = cmi_valid_crafting_recipes.workbench,
@@ -273,6 +275,10 @@ function SurvivalGame.loadCraftingRecipes( self )
 		craftbot = cmi_valid_crafting_recipes.craftbot,
 		dressbot = "$SURVIVAL_DATA/CraftingRecipes/dressbot.json"
 	})
+
+	if ignore_cache then
+		cmi_update_all_crafters()
+	end
 end
 
 function SurvivalGame.server_onFixedUpdate( self, timeStep )

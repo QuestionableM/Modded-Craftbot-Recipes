@@ -127,10 +127,14 @@ function Crafter.server_canErase( self )
 end
 
 function Crafter.client_onCreate( self )
+	cmi_crafter_object_storage[self.interactable.id] = self.interactable
+
 	self:cl_init()
 end
 
 function Crafter.client_onDestroy( self )
+	cmi_crafter_object_storage[self.interactable.id] = nil
+
 	for _,effect in ipairs( self.cl.mainEffects ) do
 		effect:destroy()
 	end
@@ -415,7 +419,7 @@ function Crafter.cl_updateRecipeGrid( self )
 	self.cl.guiInterface:clearGrid( "RecipeGrid" )
 	for _, recipeSet in ipairs( self.crafter.recipeSets ) do
 		local cur_recipe_files = g_craftingRecipes[recipeSet.name].path
-		print( "Adding", cur_recipe_files )
+		print( "Crafter Adding", cur_recipe_files )
 
 		for k, recipe_path in pairs(cur_recipe_files) do
 			self.cl.guiInterface:addGridItemsFromFile("RecipeGrid", recipe_path, { locked = recipeSet.locked })

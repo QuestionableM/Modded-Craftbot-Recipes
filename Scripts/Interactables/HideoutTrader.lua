@@ -241,6 +241,7 @@ end
 -- Client
 
 function HideoutTrader.client_onCreate( self )
+	cmi_hideout_trader_storage[self.interactable.id] = self.interactable
 	self:cl_init()
 end
 
@@ -288,6 +289,7 @@ function HideoutTrader.cl_init( self )
 end
 
 function HideoutTrader.client_onDestroy(self)
+	cmi_hideout_trader_storage[self.interactable.id] = nil
 	-- Destroy animation effects
 	for name, effect in pairs( self.cl.animationEffects ) do
 		effect:stop()
@@ -296,6 +298,8 @@ end
 
 function HideoutTrader.cl_updateTradeGrid( self )
 	self.cl.guiInterface:clearGrid( "TradeGrid" )
+
+	print("Hideout Add:", cmi_valid_crafting_recipes.hideout)
 
 	for k, path in ipairs(cmi_valid_crafting_recipes.hideout) do
 		self.cl.guiInterface:addGridItemsFromFile("TradeGrid", path)
