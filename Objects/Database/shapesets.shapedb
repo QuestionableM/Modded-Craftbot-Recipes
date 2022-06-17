@@ -1,3 +1,6 @@
 {
-	"shapeSetList": [ "$CONTENT_DATA/Objects/Database/ShapeSets/hideout_trader.shapeset" ]
+	"shapeSetList": [
+		"$CONTENT_DATA/Objects/Database/ShapeSets/hideout_trader.shapeset",
+		"$CONTENT_DATA/Objects/Database/ShapeSets/craftbot.shapeset"
+	]
 }

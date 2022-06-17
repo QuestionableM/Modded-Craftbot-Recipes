@@ -48,6 +48,10 @@ local cmi_recipe_cache_file = "$CONTENT_DATA/Scripts/CraftingRecipeCache.json"
 function initialize_crafting_recipes()
 	ModDatabase.loadDescriptions()
 
+	cmi_valid_crafting_recipes.craftbot  = {}
+	cmi_valid_crafting_recipes.workbench = {}
+	cmi_valid_crafting_recipes.hideout   = {}
+
 	--read the last timestamp or make it random if it doesn't exist
 	local last_timestamp = math.random(0, 10000)
 	local success, timestamp_json = pcall(sm.json.open, "$CONTENT_40639a2c-bb9f-4d4f-b88c-41bfe264ffa8/Scripts/data/last_update.json")
@@ -118,5 +122,3 @@ function initialize_crafting_recipes()
 
 	sm.json.save(json_save_data, cmi_recipe_cache_file)
 end
-
-initialize_crafting_recipes()

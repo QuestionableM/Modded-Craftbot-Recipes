@@ -13,7 +13,7 @@ dofile( "$SURVIVAL_DATA/Scripts/game/survival_shapes.lua" )
 dofile( "$SURVIVAL_DATA/Scripts/game/survival_units.lua" )
 dofile( "$SURVIVAL_DATA/Scripts/game/survival_projectiles.lua" )
 dofile( "$SURVIVAL_DATA/Scripts/game/survival_meleeattacks.lua" )
-dofile( "$SURVIVAL_DATA/Scripts/game/util/recipes.lua" )
+dofile( "$CONTENT_DATA/Scripts/util/recipes.lua" )
 dofile( "$SURVIVAL_DATA/Scripts/game/util/Timer.lua" )
 dofile( "$SURVIVAL_DATA/Scripts/game/managers/QuestEntityManager.lua" )
 dofile( "$GAME_DATA/Scripts/game/managers/EventManager.lua" )
@@ -267,10 +267,10 @@ function SurvivalGame.loadCraftingRecipes( self )
 	initialize_crafting_recipes()
 
 	LoadCraftingRecipes({
-		workbench = "$SURVIVAL_DATA/CraftingRecipes/workbench.json",
+		workbench = cmi_valid_crafting_recipes.workbench,
 		dispenser = "$SURVIVAL_DATA/CraftingRecipes/dispenser.json",
 		cookbot = "$SURVIVAL_DATA/CraftingRecipes/cookbot.json",
-		craftbot = "$SURVIVAL_DATA/CraftingRecipes/craftbot.json",
+		craftbot = cmi_valid_crafting_recipes.craftbot,
 		dressbot = "$SURVIVAL_DATA/CraftingRecipes/dressbot.json"
 	})
 end
