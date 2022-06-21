@@ -263,8 +263,8 @@ function SurvivalGame.client_onClientDataUpdate( self, clientData, channel )
 end
 
 
-function SurvivalGame.loadCraftingRecipes( self, ignore_cache )
-	initialize_crafting_recipes(ignore_cache)
+function SurvivalGame.loadCraftingRecipes( self, notify_craftbots )
+	initialize_crafting_recipes()
 
 	g_craftingRecipes = nil
 
@@ -276,7 +276,7 @@ function SurvivalGame.loadCraftingRecipes( self, ignore_cache )
 		dressbot = "$SURVIVAL_DATA/CraftingRecipes/dressbot.json"
 	})
 
-	if ignore_cache then
+	if notify_craftbots then
 		cmi_update_all_crafters()
 	end
 end

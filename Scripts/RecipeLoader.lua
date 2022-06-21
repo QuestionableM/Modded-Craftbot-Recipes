@@ -1,4 +1,5 @@
 dofile("$CONTENT_40639a2c-bb9f-4d4f-b88c-41bfe264ffa8/Scripts/ModDatabase.lua")
+ModDatabase.loadDescriptions()
 
 if not cmi_hideout_trader_storage then
 	cmi_hideout_trader_storage = {}
@@ -66,9 +67,20 @@ local function clean_valid_recipes()
 	cmi_valid_crafting_recipes.hideout   = {}
 end
 
-local cmi_last_time_stamp = math.random(0, 10000)
-local cmi_recipe_cache_file = "$CONTENT_DATA/Scripts/CraftingRecipeCache.json"
-function cmi_scan_crafting_recipes_and_save()
+local function cmi_update_crafters(crafter_array, callback)
+	for k, inter in pairs(crafter_array) do
+		if inter and sm.exists(inter) then
+			sm.event.sendToInteractable(inter, callback)
+		end
+	end
+end
+
+function cmi_update_all_crafters()
+	cmi_update_crafters(cmi_hideout_trader_storage, "cl_updateTradeGrid")
+	cmi_update_crafters(cmi_crafter_object_storage, "cl_updateRecipeGrid")
+end
+
+function initialize_crafting_recipes()
 	local l_craftbot_recipes  = { "$SURVIVAL_DATA/CraftingRecipes/craftbot.json" }
 	local l_workbench_recipes = { "$SURVIVAL_DATA/CraftingRecipes/workbench.json" }
 	local l_hideout_recipes   = { "$SURVIVAL_DATA/CraftingRecipes/hideout.json" }
@@ -105,55 +117,4 @@ function cmi_scan_crafting_recipes_and_save()
 	sort_valid_recipe_files(cmi_valid_crafting_recipes.craftbot , l_craftbot_recipes )
 	sort_valid_recipe_files(cmi_valid_crafting_recipes.workbench, l_workbench_recipes)
 	sort_valid_recipe_files(cmi_valid_crafting_recipes.hideout  , l_hideout_recipes  )
-
-	local json_save_data =
-	{
-		time_stamp = cmi_last_time_stamp,
-		craftbot   = l_craftbot_recipes,
-		workbench  = l_workbench_recipes,
-		hideout    = l_hideout_recipes
-	}
-
-	sm.json.save(json_save_data, cmi_recipe_cache_file)
-end
-
-local function cmi_update_crafters(crafter_array, callback)
-	for k, inter in pairs(crafter_array) do
-		if inter and sm.exists(inter) then
-			sm.event.sendToInteractable(inter, callback)
-		end
-	end
-end
-
-function cmi_update_all_crafters()
-	cmi_update_crafters(cmi_hideout_trader_storage, "cl_updateTradeGrid")
-	cmi_update_crafters(cmi_crafter_object_storage, "cl_updateRecipeGrid")
-end
-
-function initialize_crafting_recipes(ignore_cache)
-	ModDatabase.loadDescriptions()
-
-	--read the last timestamp or make it random if it doesn't exist
-	local success, timestamp_json = pcall(sm.json.open, "$CONTENT_40639a2c-bb9f-4d4f-b88c-41bfe264ffa8/Scripts/data/last_update.json")
-	if success then
-		cmi_last_time_stamp = timestamp_json.unix_timestamp
-	end
-
-	if ignore_cache == nil then
-		local has_file = sm.json.fileExists(cmi_recipe_cache_file)
-		if has_file then
-			local json_data = sm.json.open(cmi_recipe_cache_file)
-			if json_data.time_stamp == cmi_last_time_stamp then --means we can skip the whole search of new crafting recipe files
-				clean_valid_recipes()
-
-				sort_valid_recipe_files(cmi_valid_crafting_recipes.craftbot , json_data.craftbot )
-				sort_valid_recipe_files(cmi_valid_crafting_recipes.workbench, json_data.workbench)
-				sort_valid_recipe_files(cmi_valid_crafting_recipes.hideout  , json_data.hideout  )
-
-				return
-			end
-		end
-	end
-
-	cmi_scan_crafting_recipes_and_save()
 end
