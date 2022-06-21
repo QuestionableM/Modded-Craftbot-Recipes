@@ -1,0 +1,40 @@
+{
+	"partList": [
+		{
+			"uuid": "ebd73cee-988f-4ffb-95d1-d3c3c81fd506",
+			"name": "obj_survivalobject_dispenserbot",
+			"renderable": "$SURVIVAL_DATA/Character/Char_dispenserbot/char_dispenserbot.rend",
+			"color": "4a4a4a",
+			"hull": {
+				"x": 12,
+				"y": 5,
+				"z": 6,
+				"col": "$SURVIVAL_DATA/Objects/Collision/obj_survivalobject_dispenserbot.obj"
+			},
+			"scripted": {
+				"filename": "$CONTENT_DATA/Scripts/Interactables/Crafter.lua",
+				"classname": "Dispenser",
+				"data": {}
+			},
+			"rotationSet": "PropY",
+			"physicsMaterial": "Metal",
+			"ratings": {
+				"density": 5,
+				"durability": 10,
+				"friction": 5,
+				"buoyancy": 5
+			},
+			"flammable": false,
+			"restrictions": {
+				"destructable": false,
+				"erasable": false,
+				"buildable": false,
+				"usable": true,
+				"connectable": false,
+				"liftable": false,
+				"convertibleToDynamic": false,
+				"paintable": false
+			}
+		}
+	]
+}

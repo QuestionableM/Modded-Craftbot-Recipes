@@ -421,8 +421,12 @@ function Crafter.cl_updateRecipeGrid( self )
 		local cur_recipe_files = g_craftingRecipes[recipeSet.name].path
 		print( "Crafter Adding", cur_recipe_files )
 
-		for k, recipe_path in pairs(cur_recipe_files) do
-			self.cl.guiInterface:addGridItemsFromFile("RecipeGrid", recipe_path, { locked = recipeSet.locked })
+		if type(cur_recipe_files) == "table" then
+			for k, recipe_path in pairs(cur_recipe_files) do
+				self.cl.guiInterface:addGridItemsFromFile("RecipeGrid", recipe_path, { locked = recipeSet.locked })
+			end
+		else
+			self.cl.guiInterface:addGridItemsFromFile("RecipeGrid", cur_recipe_files, { locked = recipeSet.locked })
 		end
 	end
 end
