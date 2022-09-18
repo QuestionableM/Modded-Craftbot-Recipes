@@ -93,33 +93,35 @@ function initialize_crafting_recipes()
 	local l_hideout_recipes   = { "$SURVIVAL_DATA/CraftingRecipes/hideout.json" }
  
 	for mod_uuid, v in pairs(ModDatabase.databases.descriptions) do
-		local mod_key = "$CONTENT_"..mod_uuid
+		if v.type ~= "Custom Game" then
+			local mod_key = "$CONTENT_"..mod_uuid
 
-		local success, fileExists = pcall(_json_file_exists, mod_key)
-		if success == true and fileExists == true then
-			local cur_exception = mod_exception_list[mod_uuid]
+			local success, fileExists = pcall(_json_file_exists, mod_key)
+			if success == true and fileExists == true then
+				local cur_exception = mod_exception_list[mod_uuid]
 
-			if cur_exception == nil then
-				local recipe_folder = mod_key.."/CraftingRecipes/"
+				if cur_exception == nil then
+					local recipe_folder = mod_key.."/CraftingRecipes/"
 
-				is_recipe_file_valid(recipe_folder.."craftbot.json" , l_craftbot_recipes )
-				is_recipe_file_valid(recipe_folder.."workbench.json", l_workbench_recipes)
-				is_recipe_file_valid(recipe_folder.."hideout.json"  , l_hideout_recipes  )
-			else
-				local exc_craftbot  = cur_exception.craftbot
-				local exc_workbench = cur_exception.workbench
-				local exc_hideout   = cur_exception.hideout
+					is_recipe_file_valid(recipe_folder.."craftbot.json" , l_craftbot_recipes )
+					is_recipe_file_valid(recipe_folder.."workbench.json", l_workbench_recipes)
+					is_recipe_file_valid(recipe_folder.."hideout.json"  , l_hideout_recipes  )
+				else
+					local exc_craftbot  = cur_exception.craftbot
+					local exc_workbench = cur_exception.workbench
+					local exc_hideout   = cur_exception.hideout
 
-				if exc_craftbot then
-					is_recipe_file_valid(mod_key..exc_craftbot, l_craftbot_recipes)
-				end
+					if exc_craftbot then
+						is_recipe_file_valid(mod_key..exc_craftbot, l_craftbot_recipes)
+					end
 
-				if exc_workbench then
-					is_recipe_file_valid(mod_key..exc_workbench, l_workbench_recipes)
-				end
+					if exc_workbench then
+						is_recipe_file_valid(mod_key..exc_workbench, l_workbench_recipes)
+					end
 
-				if exc_hideout then
-					is_recipe_file_valid(mod_key..exc_hideout, l_hideout_recipes)
+					if exc_hideout then
+						is_recipe_file_valid(mod_key..exc_hideout, l_hideout_recipes)
+					end
 				end
 			end
 		end
