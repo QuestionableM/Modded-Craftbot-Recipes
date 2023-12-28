@@ -5,23 +5,14 @@
 			"name": "obj_survivalobject_workbench",
 			"renderable": "$SURVIVAL_DATA/Character/Char_Workbench/char_workbench.rend",
 			"color": "4a4a4a",
-			"box": {
-				"x": 5,
-				"y": 11,
-				"z": 3
-			},
+			"box": { "x": 5, "y": 11, "z": 3 },
 			"scripted": {
-				"filename": "$CONTENT_DATA/Scripts/Interactables/Crafter.lua",
+				"filename": "$SURVIVAL_DATA/Scripts/game/interactables/Crafter.lua",
 				"classname": "Workbench"
 			},
 			"rotationSet": "PropY",
 			"physicsMaterial": "Metal",
-			"ratings": {
-				"density": 5,
-				"durability": 10,
-				"friction": 5,
-				"buoyancy": 5
-			},
+			"ratings": { "density": 5, "durability": 10, "friction": 5, "buoyancy": 5 },
 			"flammable": false,
 			"restrictions": {
 				"destructable": false,

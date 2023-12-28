@@ -12,33 +12,18 @@
 				"col": "$SURVIVAL_DATA/Objects/Collision/char_craftbot_col.obj"
 			},
 			"scripted": {
-				"filename": "$CONTENT_DATA/Scripts/Interactables/Crafter.lua",
+				"filename": "$SURVIVAL_DATA/Scripts/game/interactables/Crafter.lua",
 				"classname": "Craftbot"
 			},
 			"rotationSet": "PropY",
 			"sticky": "-Z+Y-Y+X-X",
 			"physicsMaterial": "Metal",
-			"ratings": {
-				"density": 7,
-				"durability": 7,
-				"friction": 6,
-				"buoyancy": 1
-			},
+			"ratings": { "density": 7, "durability": 7, "friction": 6, "buoyancy": 1 },
 			"flammable": false,
 			"pipe": {
 				"openings": [
-					{
-						"side": "+X",
-						"x": 5.0,
-						"y": -2.5,
-						"z": 0.0
-					},
-					{
-						"side": "-X",
-						"x": -5.0,
-						"y": -2.5,
-						"z": 0.0
-					}
+					{ "side": "+X", "x": 5.0, "y": -2.5, "z": 0.0 },
+					{ "side": "-X", "x": -5.0, "y": -2.5, "z": 0.0 }
 				]
 			},
 			"carryItem": true
@@ -55,33 +40,18 @@
 				"col": "$SURVIVAL_DATA/Objects/Collision/char_craftbot_col.obj"
 			},
 			"scripted": {
-				"filename": "$CONTENT_DATA/Scripts/Interactables/Crafter.lua",
+				"filename": "$SURVIVAL_DATA/Scripts/game/interactables/Crafter.lua",
 				"classname": "Craftbot"
 			},
 			"rotationSet": "PropY",
 			"sticky": "-Z+Y-Y+X-X",
 			"physicsMaterial": "Metal",
-			"ratings": {
-				"density": 7,
-				"durability": 7,
-				"friction": 6,
-				"buoyancy": 1
-			},
+			"ratings": { "density": 7, "durability": 7, "friction": 6, "buoyancy": 1 },
 			"flammable": false,
 			"pipe": {
 				"openings": [
-					{
-						"side": "+X",
-						"x": 5.0,
-						"y": -2.5,
-						"z": 0.0
-					},
-					{
-						"side": "-X",
-						"x": -5.0,
-						"y": -2.5,
-						"z": 0.0
-					}
+					{ "side": "+X", "x": 5.0, "y": -2.5, "z": 0.0 },
+					{ "side": "-X", "x": -5.0, "y": -2.5, "z": 0.0 }
 				]
 			},
 			"carryItem": true,
@@ -99,33 +69,18 @@
 				"col": "$SURVIVAL_DATA/Objects/Collision/char_craftbot_col.obj"
 			},
 			"scripted": {
-				"filename": "$CONTENT_DATA/Scripts/Interactables/Crafter.lua",
+				"filename": "$SURVIVAL_DATA/Scripts/game/interactables/Crafter.lua",
 				"classname": "Craftbot"
 			},
 			"rotationSet": "PropY",
 			"sticky": "-Z+Y-Y+X-X",
 			"physicsMaterial": "Metal",
-			"ratings": {
-				"density": 7,
-				"durability": 7,
-				"friction": 6,
-				"buoyancy": 1
-			},
+			"ratings": { "density": 7, "durability": 7, "friction": 6, "buoyancy": 1 },
 			"flammable": false,
 			"pipe": {
 				"openings": [
-					{
-						"side": "+X",
-						"x": 5.0,
-						"y": -2.5,
-						"z": 0.0
-					},
-					{
-						"side": "-X",
-						"x": -5.0,
-						"y": -2.5,
-						"z": 0.0
-					}
+					{ "side": "+X", "x": 5.0, "y": -2.5, "z": 0.0 },
+					{ "side": "-X", "x": -5.0, "y": -2.5, "z": 0.0 }
 				]
 			},
 			"carryItem": true,
@@ -143,33 +98,18 @@
 				"col": "$SURVIVAL_DATA/Objects/Collision/char_craftbot_col.obj"
 			},
 			"scripted": {
-				"filename": "$CONTENT_DATA/Scripts/Interactables/Crafter.lua",
+				"filename": "$SURVIVAL_DATA/Scripts/game/interactables/Crafter.lua",
 				"classname": "Craftbot"
 			},
 			"rotationSet": "PropY",
 			"sticky": "-Z+Y-Y+X-X",
 			"physicsMaterial": "Metal",
-			"ratings": {
-				"density": 7,
-				"durability": 7,
-				"friction": 6,
-				"buoyancy": 1
-			},
+			"ratings": { "density": 7, "durability": 7, "friction": 6, "buoyancy": 1 },
 			"flammable": false,
 			"pipe": {
 				"openings": [
-					{
-						"side": "+X",
-						"x": 5.0,
-						"y": -2.5,
-						"z": 0.0
-					},
-					{
-						"side": "-X",
-						"x": -5.0,
-						"y": -2.5,
-						"z": 0.0
-					}
+					{ "side": "+X", "x": 5.0, "y": -2.5, "z": 0.0 },
+					{ "side": "-X", "x": -5.0, "y": -2.5, "z": 0.0 }
 				]
 			},
 			"carryItem": true,
@@ -187,33 +127,18 @@
 				"col": "$SURVIVAL_DATA/Objects/Collision/char_craftbot_col.obj"
 			},
 			"scripted": {
-				"filename": "$CONTENT_DATA/Scripts/Interactables/Crafter.lua",
+				"filename": "$SURVIVAL_DATA/Scripts/game/interactables/Crafter.lua",
 				"classname": "Craftbot"
 			},
 			"rotationSet": "PropY",
 			"sticky": "-Z+Y-Y+X-X",
 			"physicsMaterial": "Metal",
-			"ratings": {
-				"density": 7,
-				"durability": 7,
-				"friction": 6,
-				"buoyancy": 1
-			},
+			"ratings": { "density": 7, "durability": 7, "friction": 6, "buoyancy": 1 },
 			"flammable": false,
 			"pipe": {
 				"openings": [
-					{
-						"side": "+X",
-						"x": 5.0,
-						"y": -2.5,
-						"z": 0.0
-					},
-					{
-						"side": "-X",
-						"x": -5.0,
-						"y": -2.5,
-						"z": 0.0
-					}
+					{ "side": "+X", "x": 5.0, "y": -2.5, "z": 0.0 },
+					{ "side": "-X", "x": -5.0, "y": -2.5, "z": 0.0 }
 				]
 			},
 			"carryItem": true,

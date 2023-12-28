@@ -18,6 +18,7 @@ dofile( "$SURVIVAL_DATA/Scripts/game/util/Timer.lua" )
 dofile( "$SURVIVAL_DATA/Scripts/game/managers/QuestEntityManager.lua" )
 dofile( "$GAME_DATA/Scripts/game/managers/EventManager.lua" )
 
+dofile("CrafterInjector.lua")
 dofile("RecipeLoader.lua")
 
 

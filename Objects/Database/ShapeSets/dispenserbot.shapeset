@@ -12,18 +12,13 @@
 				"col": "$SURVIVAL_DATA/Objects/Collision/obj_survivalobject_dispenserbot.obj"
 			},
 			"scripted": {
-				"filename": "$CONTENT_DATA/Scripts/Interactables/Crafter.lua",
+				"filename": "$SURVIVAL_DATA/Scripts/game/interactables/Crafter.lua",
 				"classname": "Dispenser",
 				"data": {}
 			},
 			"rotationSet": "PropY",
 			"physicsMaterial": "Metal",
-			"ratings": {
-				"density": 5,
-				"durability": 10,
-				"friction": 5,
-				"buoyancy": 5
-			},
+			"ratings": { "density": 5, "durability": 10, "friction": 5, "buoyancy": 5 },
 			"flammable": false,
 			"restrictions": {
 				"destructable": false,
