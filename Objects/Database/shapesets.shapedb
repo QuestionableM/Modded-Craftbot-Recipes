@@ -3,6 +3,7 @@
 		"$CONTENT_DATA/Objects/Database/ShapeSets/hideout_trader.shapeset",
 		"$CONTENT_DATA/Objects/Database/ShapeSets/craftbot.shapeset",
 		"$CONTENT_DATA/Objects/Database/ShapeSets/workbench.shapeset",
-		"$CONTENT_DATA/Objects/Database/ShapeSets/dispenserbot.shapeset"
+		"$CONTENT_DATA/Objects/Database/ShapeSets/dispenserbot.shapeset",
+		"$SURVIVAL_DATA/Objects/Database/ShapeSets/wedges.shapeset"
 	]
 }
