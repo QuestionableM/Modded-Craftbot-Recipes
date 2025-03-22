@@ -181,12 +181,9 @@ function SurvivalGame.client_onCreate( self )
 end
 
 function SurvivalGame.bindChatCommands( self )
+	pcall(sm.game.bindChatCommand)
 
-
-
-	local addCheats = g_survivalDev
-
-	if addCheats then
+	if g_survivalDev then
 		sm.game.bindChatCommand( "/ammo", { { "int", "quantity", true } }, "cl_onChatCommand", "Give ammo (default 50)" )
 		sm.game.bindChatCommand( "/spudgun", {}, "cl_onChatCommand", "Give the spudgun" )
 		sm.game.bindChatCommand( "/gatling", {}, "cl_onChatCommand", "Give the potato gatling gun" )
