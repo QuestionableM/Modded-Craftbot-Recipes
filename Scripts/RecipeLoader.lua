@@ -84,6 +84,19 @@ function cmi_update_all_crafters()
 	cmi_update_crafters(cmi_crafter_object_storage, "cl_updateRecipeGrid")
 end
 
+local function cmi_sort_mods(tbl)
+    local keyList = {}
+    for k, v in pairs(tbl) do
+        table.insert(keyList, k)
+    end
+
+    table.sort(keyList, function(a, b)
+        return tbl[a] < tbl[b]
+    end)
+
+    return keyList
+end
+
 local function cmi_get_all_loaded_mods()
 	--Unload everything in case the function is called again
 	ModDatabase.unloadDescriptions()
@@ -98,7 +111,7 @@ local function cmi_get_all_loaded_mods()
 
 	for localId, shapesets in pairs(ModDatabase.databases.shapesets) do
 		if ModDatabase.isModLoaded(localId) then
-			v_loaded[localId] = true
+			v_loaded[localId] = ModDatabase.databases.descriptions[localId].fileId
 		end
 	end
 
@@ -106,7 +119,7 @@ local function cmi_get_all_loaded_mods()
 	for localId, toolsets in pairs(ModDatabase.databases.toolsets) do
 		if v_loaded[localId] == nil then
 			if ModDatabase.isModLoaded(localId) then
-				v_loaded[localId] = true
+				v_loaded[localId] = ModDatabase.databases.descriptions[localId].fileId
 			end
 		end
 	end
@@ -128,8 +141,8 @@ function initialize_crafting_recipes()
 
 	local _json_file_exists = sm.json.fileExists
 
-	local v_loaded_mods = cmi_get_all_loaded_mods()
-	for localId, _ in pairs(v_loaded_mods) do
+	local v_loaded_mods = cmi_sort_mods(cmi_get_all_loaded_mods())
+	for _, localId in ipairs(v_loaded_mods) do
 		local v_mod_key = "$CONTENT_"..localId
 
 		local success, fileExists = pcall(_json_file_exists, v_mod_key)
