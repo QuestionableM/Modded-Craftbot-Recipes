@@ -98,7 +98,7 @@ local function cmi_sort_mods(tbl)
 end
 
 local function cmi_get_all_loaded_mods()
-	--Unload everything in case the function is called again
+	-- Unload everything in case the function is called again
 	ModDatabase.unloadDescriptions()
 	ModDatabase.unloadShapesets()
 	ModDatabase.unloadToolsets()
@@ -107,69 +107,68 @@ local function cmi_get_all_loaded_mods()
 	ModDatabase.loadShapesets()
 	ModDatabase.loadToolsets()
 
-	local v_loaded = {}
+	local v_loadedMods = {}
+	local v_modDbDescs = ModDatabase.databases.descriptions
 
-	for localId, shapesets in pairs(ModDatabase.databases.shapesets) do
+	for localId, _ in pairs(ModDatabase.databases.shapesets) do
 		if ModDatabase.isModLoaded(localId) then
-			v_loaded[localId] = ModDatabase.databases.descriptions[localId].fileId
+			v_loadedMods[localId] = v_modDbDescs[localId].fileId
 		end
 	end
 
-	--Add tool mods into the list of loaded mods
-	for localId, toolsets in pairs(ModDatabase.databases.toolsets) do
-		if v_loaded[localId] == nil then
-			if ModDatabase.isModLoaded(localId) then
-				v_loaded[localId] = ModDatabase.databases.descriptions[localId].fileId
-			end
+	-- Add tool mods into the list of loaded mods
+	for localId, _ in pairs(ModDatabase.databases.toolsets) do
+		if v_loadedMods[localId] == nil and ModDatabase.isModLoaded(localId) then
+			v_loadedMods[localId] = v_modDbDescs[localId].fileId
 		end
 	end
 
-	--Exclude custom games from the list
-	for localId, _ in pairs(v_loaded) do
-		if ModDatabase.databases.descriptions[localId].type == "Custom Game" then
-			v_loaded[localId] = nil
+	-- Exclude custom games from the list
+	for localId, _ in pairs(v_loadedMods) do
+		if v_modDbDescs[localId].type == "Custom Game" then
+			v_loadedMods[localId] = nil
 		end
 	end
 
-	return v_loaded
+	return v_loadedMods
 end
 
 function initialize_crafting_recipes()
-	local l_craftbot_recipes  = { "$SURVIVAL_DATA/CraftingRecipes/craftbot.json" }
-	local l_workbench_recipes = { "$SURVIVAL_DATA/CraftingRecipes/workbench.json" }
-	local l_hideout_recipes   = { "$SURVIVAL_DATA/CraftingRecipes/hideout.json" }
+	local v_craftbotRecipes  = { "$SURVIVAL_DATA/CraftingRecipes/craftbot.json" }
+	local v_workbenchRecipes = { "$SURVIVAL_DATA/CraftingRecipes/workbench.json" }
+	local v_hideoutRecipes   = { "$SURVIVAL_DATA/CraftingRecipes/hideout.json" }
 
-	local _json_file_exists = sm.json.fileExists
+	local _json_fileExists = sm.json.fileExists
 
-	local v_loaded_mods = cmi_sort_mods(cmi_get_all_loaded_mods())
-	for _, localId in ipairs(v_loaded_mods) do
-		local v_mod_key = "$CONTENT_"..localId
+	local v_loadedMods = cmi_sort_mods(cmi_get_all_loaded_mods())
+	for _, localId in ipairs(v_loadedMods) do
+		local v_modKey = "$CONTENT_"..localId
 
-		local success, fileExists = pcall(_json_file_exists, v_mod_key)
+		local success, fileExists = pcall(_json_fileExists, v_modKey)
 		if success == true and fileExists == true then
-			local v_cur_exception = mod_exception_list[localId]
+			local v_curException = mod_exception_list[localId]
 
-			if v_cur_exception == nil then
-				local v_recipe_folder = v_mod_key.."/CraftingRecipes/"
+			if v_curException == nil then
+				local v_recipe_folder = v_modKey.."/CraftingRecipes/"
 
-				is_recipe_file_valid(v_recipe_folder.."craftbot.json" , l_craftbot_recipes )
-				is_recipe_file_valid(v_recipe_folder.."workbench.json", l_workbench_recipes)
-				is_recipe_file_valid(v_recipe_folder.."hideout.json"  , l_hideout_recipes  )
+				is_recipe_file_valid(v_recipe_folder.."craftbot.json" , v_craftbotRecipes )
+				is_recipe_file_valid(v_recipe_folder.."workbench.json", v_workbenchRecipes)
+				is_recipe_file_valid(v_recipe_folder.."hideout.json"  , v_hideoutRecipes  )
 			else
-				local v_exc_craftbot  = v_cur_exception.craftbot
-				local v_exc_workbench = v_cur_exception.workbench
-				local v_exc_hideout   = v_cur_exception.hideout
+				local v_excCraftbot  = v_curException.craftbot
+				local v_excWorkbench = v_curException.workbench
+				local v_excHideout   = v_curException.hideout
 
-				if v_exc_craftbot then
-					is_recipe_file_valid(v_mod_key..v_exc_craftbot, l_craftbot_recipes)
+				if v_excCraftbot then
+					is_recipe_file_valid(v_modKey..v_excCraftbot, v_craftbotRecipes)
 				end
 
-				if v_exc_workbench then
-					is_recipe_file_valid(v_mod_key..v_exc_workbench, l_workbench_recipes)
+				if v_excWorkbench then
+					is_recipe_file_valid(v_modKey..v_excWorkbench, v_workbenchRecipes)
 				end
 
-				if v_exc_hideout then
-					is_recipe_file_valid(v_mod_key..v_exc_hideout, l_hideout_recipes)
+				if v_excHideout then
+					is_recipe_file_valid(v_modKey..v_excHideout, v_hideoutRecipes)
 				end
 			end
 		end
@@ -179,7 +178,7 @@ function initialize_crafting_recipes()
 	clean_valid_recipes()
 
 	--set new data
-	sort_valid_recipe_files(cmi_valid_crafting_recipes.craftbot , l_craftbot_recipes )
-	sort_valid_recipe_files(cmi_valid_crafting_recipes.workbench, l_workbench_recipes)
-	sort_valid_recipe_files(cmi_valid_crafting_recipes.hideout  , l_hideout_recipes  )
+	sort_valid_recipe_files(cmi_valid_crafting_recipes.craftbot , v_craftbotRecipes )
+	sort_valid_recipe_files(cmi_valid_crafting_recipes.workbench, v_workbenchRecipes)
+	sort_valid_recipe_files(cmi_valid_crafting_recipes.hideout  , v_hideoutRecipes  )
 end
