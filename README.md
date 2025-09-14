@@ -1,7 +1,9 @@
-# Modded Craftbot Recipes
- This custom game allows you to play Survival mode with mods, while also being able to craft the modded parts in the craftbot! It will take care of loading all available crafting recipes from compatible mods into the craftbot!
+![Preview](https://github.com/QuestionableM/Modded-Craftbot-Recipes/blob/main/preview.jpg)
 
- ![Steam Downloads](https://img.shields.io/steam/downloads/2816900681)
+# Modded Craftbot Recipes
+This custom game allows you to play Survival mode with mods, while also being able to craft the modded parts in the craftbot! It will take care of loading all available crafting recipes from compatible mods into the craftbot!
+
+![Steam Downloads](https://img.shields.io/steam/downloads/2816900681?style=for-the-badge)
 
 # How to make your mod compatible
 ### Step 1: Create a folder named `CraftingRecipes` in the root directory of your mod.
