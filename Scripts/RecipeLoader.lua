@@ -134,7 +134,7 @@ local function cmi_get_all_loaded_mods()
 end
 
 function initialize_crafting_recipes()
-	local v_craftbotRecipes  = { "$SURVIVAL_DATA/CraftingRecipes/craftbot.json" }
+	local v_craftbotRecipes  = { "$SURVIVAL_DATA/CraftingRecipes/craftbot/craftbot.json" }
 	local v_workbenchRecipes = { "$SURVIVAL_DATA/CraftingRecipes/workbench.json" }
 	local v_hideoutRecipes   = { "$SURVIVAL_DATA/CraftingRecipes/hideout.json" }
 

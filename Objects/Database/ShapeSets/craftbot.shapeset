@@ -1,32 +1,34 @@
 {
 	"partList": [
 		{
-			"uuid": "b63c6440-dfc2-4da7-acdb-3c385080b2e4",
-			"name": "obj_craftbot_craftbot1",
-			"renderable": "$SURVIVAL_DATA/Character/Char_Craftbot/char_craftbot.rend",
+			"carryItem": false,
 			"color": "df7f01",
+			"destroyTime": 1.0,
+			"flammable": false,
 			"hull": {
+				"col": "$SURVIVAL_DATA/Character/Char_Craftbot/char_craftbot_col.fbx",
 				"x": 10,
 				"y": 8,
-				"z": 9,
-				"col": "$SURVIVAL_DATA/Objects/Collision/char_craftbot_col.obj"
+				"z": 9
 			},
-			"scripted": {
-				"filename": "$SURVIVAL_DATA/Scripts/game/interactables/Crafter.lua",
-				"classname": "Craftbot"
-			},
-			"rotationSet": "PropY",
-			"sticky": "-Z+Y-Y+X-X",
-			"physicsMaterial": "Metal",
-			"ratings": { "density": 7, "durability": 7, "friction": 6, "buoyancy": 1 },
-			"flammable": false,
+			"name": "obj_craftbot_craftbot1",
+			"physicsMaterial": "Mechanical",
 			"pipe": {
 				"openings": [
-					{ "side": "+X", "x": 5.0, "y": -2.5, "z": 0.0 },
-					{ "side": "-X", "x": -5.0, "y": -2.5, "z": 0.0 }
-				]
+					{ "direction": "output", "side": "+X", "x": 5.0, "y": -2.5, "z": 0.0 },
+					{ "direction": "input", "side": "-X", "x": -5.0, "y": -2.5, "z": 0.0 }
+				],
+				"type": "Interactable"
 			},
-			"carryItem": true
+			"ratings": { "buoyancy": 1, "density": 3, "durability": 7, "friction": 6 },
+			"renderable": "$SURVIVAL_DATA/Character/Char_Craftbot/char_craftbot.rend",
+			"rotationSet": "PropY",
+			"scripted": {
+				"classname": "Craftbot",
+				"filename": "$CONTENT_DATA/Scripts/Crafter.lua"
+			},
+			"sticky": "-Z+Y-Y+X-X",
+			"uuid": "b63c6440-dfc2-4da7-acdb-3c385080b2e4"
 		},
 		{
 			"uuid": "b7571f6f-9d53-44ba-99d2-3b4f05e6fd0f",
@@ -52,7 +54,8 @@
 				"openings": [
 					{ "side": "+X", "x": 5.0, "y": -2.5, "z": 0.0 },
 					{ "side": "-X", "x": -5.0, "y": -2.5, "z": 0.0 }
-				]
+				],
+				"type" : "Interactable"
 			},
 			"carryItem": true,
 			"showInInventory": false
@@ -81,7 +84,8 @@
 				"openings": [
 					{ "side": "+X", "x": 5.0, "y": -2.5, "z": 0.0 },
 					{ "side": "-X", "x": -5.0, "y": -2.5, "z": 0.0 }
-				]
+				],
+				"type" : "Interactable"
 			},
 			"carryItem": true,
 			"showInInventory": false
@@ -110,7 +114,8 @@
 				"openings": [
 					{ "side": "+X", "x": 5.0, "y": -2.5, "z": 0.0 },
 					{ "side": "-X", "x": -5.0, "y": -2.5, "z": 0.0 }
-				]
+				],
+				"type" : "Interactable"
 			},
 			"carryItem": true,
 			"showInInventory": false
@@ -139,7 +144,8 @@
 				"openings": [
 					{ "side": "+X", "x": 5.0, "y": -2.5, "z": 0.0 },
 					{ "side": "-X", "x": -5.0, "y": -2.5, "z": 0.0 }
-				]
+				],
+				"type" : "Interactable"
 			},
 			"carryItem": true,
 			"showInInventory": false
