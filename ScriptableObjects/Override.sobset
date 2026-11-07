@@ -1,0 +1,10 @@
+{
+    "scriptableObjectList": [
+        {
+			"filename": "$CONTENT_DATA/Scripts/RecipeManager.lua",
+			"classname": "RecipeManager",
+			"uuid": "6d92377e-b496-4819-8a94-6ee6791b10cb",
+			"singleton": true
+		}
+    ]
+}

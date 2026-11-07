@@ -61,7 +61,8 @@ local crafters = {
 		slots = 1,
 		speed = 1,
 		recipeSets = {
-			{ name = "workbench" }
+			{ name = "workbench"        },
+			{ name = "workbench_custom" }
 		},
 		subTitle = "",
 		createGuiFunction = sm.gui.createWorkbenchGui

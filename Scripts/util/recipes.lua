@@ -108,6 +108,11 @@ function LoadCraftingRecipes( recipePaths )
 
 	local schematicBanlist = createSchematicBanList()
 
+	local custom_recipe_sets = {
+		["craftbot_custom"] = true,
+		["workbench_custom"] = true
+	}
+
 	for name, path in pairs( recipePaths ) do
 		local recipes = {}
 		local recipesByIndex = {}
@@ -121,9 +126,9 @@ function LoadCraftingRecipes( recipePaths )
         end
 
 		-- NOTE: Wardrobe is using 'recipes' by uuid, crafter is using 'recipesByIndex'
-		g_craftingRecipeSets[name] = { path = path, recipes = recipes, recipesByIndex = recipesByIndex }
+		g_craftingRecipeSets[name] = { path = path, recipes = recipes, recipesByIndex = recipesByIndex, custom = custom_recipe_sets[name] }
 
-		if string.match( name, "^craftbot_" ) then
+		if string.match( name, "^craftbot_" ) and name ~= "craftbot_custom" then
 			for itemId, _ in pairs( recipes ) do
 				if not schematicBanlist[itemId] then
 					g_unlockableCraftItems[itemId] = true

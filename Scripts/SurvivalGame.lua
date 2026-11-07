@@ -275,8 +275,10 @@ function SurvivalGame.loadCraftingRecipes( self )
 	initialize_crafting_recipes()
 
 	local recipeSets = sm.json.open( "$SURVIVAL_DATA/CraftingRecipes/craftbot/craftbot.json" )
+	recipeSets.craftbot = "$SURVIVAL_DATA/CraftingRecipes/craftbot/craftbot.json"
 	recipeSets.craftbot_custom = cmi_valid_crafting_recipes.craftbot
-	recipeSets.workbench = cmi_valid_crafting_recipes.workbench
+	recipeSets.workbench = "$SURVIVAL_DATA/CraftingRecipes/workbench.json"
+	recipeSets.workbench_custom = cmi_valid_crafting_recipes.workbench
 	recipeSets.portablecrafter = "$SURVIVAL_DATA/CraftingRecipes/portablecrafter.json"
 	recipeSets.dispenser = "$SURVIVAL_DATA/CraftingRecipes/dispenser.json"
 	recipeSets.cookbot = "$SURVIVAL_DATA/CraftingRecipes/cookbot.json"

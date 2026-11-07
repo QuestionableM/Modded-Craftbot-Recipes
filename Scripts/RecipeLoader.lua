@@ -10,13 +10,9 @@ end
 
 local _sm_shape_uuidExists = sm.shape.uuidExists
 local _sm_tool_uuidExists  = sm.tool.uuidExists
-local function is_uuid_valid(uuid)
-	return _sm_shape_uuidExists(uuid) or _sm_tool_uuidExists(uuid)
-end
-
-local _sm_json_open   = sm.json.open
-local _sm_uuid_new    = sm.uuid.new
-local _sm_log_warning = sm.log.warning
+local _sm_json_open       = sm.json.open
+local _sm_uuid_new        = sm.uuid.new
+local _sm_log_warning     = sm.log.warning
 local function is_recipe_file_valid(path, table, uuid_check)
 	local success, json_data = pcall(_sm_json_open, path)
 	if success ~= true then
@@ -30,7 +26,7 @@ local function is_recipe_file_valid(path, table, uuid_check)
 			end
 
 			local success, item_uuid = pcall(_sm_uuid_new, mod_recipe.itemId)
-			if not (success == true and is_uuid_valid(item_uuid)) then
+			if success == false and not _sm_shape_uuidExists(item_uuid) and not _sm_tool_uuidExists(item_uuid) then
 				_sm_log_warning("Found an invalid recipe in: ", path, item_uuid)
 				return
 			end
@@ -134,8 +130,8 @@ local function cmi_get_all_loaded_mods()
 end
 
 function initialize_crafting_recipes()
-	local v_craftbotRecipes  = { "$SURVIVAL_DATA/CraftingRecipes/craftbot/craftbot.json" }
-	local v_workbenchRecipes = { "$SURVIVAL_DATA/CraftingRecipes/workbench.json" }
+	local v_craftbotRecipes  = {}
+	local v_workbenchRecipes = {}
 	local v_hideoutRecipes   = { "$SURVIVAL_DATA/CraftingRecipes/hideout.json" }
 
 	local _json_fileExists = sm.json.fileExists

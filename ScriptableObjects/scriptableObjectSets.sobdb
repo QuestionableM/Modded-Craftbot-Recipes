@@ -1,3 +1,5 @@
 {
-	"scriptableObjectSetList": []
+	"scriptableObjectSetList": [
+		{ "scriptableObjectSet": "$CONTENT_DATA/ScriptableObjects/Override.sobset" }
+	]
 }
